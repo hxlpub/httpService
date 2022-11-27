@@ -4,9 +4,7 @@ import (
 
 	"bytes"
 	"fmt"
-	"log"
 	"net/http"
-	"strings"
         "github.com/tidwall/gjson"
 )
 // ResponseMsg 组装响应
@@ -16,7 +14,7 @@ func ResponseMsg(code, message, dialog string) string {
 }
 
 // hello world handler
-func helloWorld(w http.ResponseWriter, r *http.Request) {
+func client(w http.ResponseWriter, r *http.Request) {
 	bodyBuf := new(bytes.Buffer)
 	bodyBuf.ReadFrom(r.Body)
 	bodyStr := bodyBuf.String()
@@ -33,14 +31,14 @@ func helloWorld(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, resMsg)
 		return
 	}
-	dialog = value.String()	
+	dialog := value.String()	
 	if dialog == "" {
-		resMeg := ResponseMsg("400", "dialog is null", "")
+		resMsg := ResponseMsg("400", "dialog is null", "")
 		fmt.Fprint(w, resMsg)
 		return
 	}
 	resMeg := ResponseMsg("200", "success", "world")
-	fmt.Fpint(w.resMeg)
+	fmt.Fprint(w,resMeg)
 	//
 
 }

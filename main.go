@@ -6,7 +6,7 @@ import (
 	//"log"
 	//"net/http"
 	"sync"
-	"hxlpub.io/httpservice/httpserver"
+	"github.com/hxlpub/httpService/httpserver"
 
 )
 var (

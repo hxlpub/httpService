@@ -7,13 +7,13 @@ import (
 	"os"
 	"sync"
 
-	"httpclient"
+  client "github.com/hxlpub/httpService/httpclient"
 )
-func httpServer(wg *sync.WaitGroup) {
+func server(wg *sync.WaitGroup) {
 	//服务（线程）的最后执行，WaitGroup计数器的值减1
 	defer wg.Done()	
 	//向DefaultServeMux添加处理器
-	http.HandlerFunc("/hello-world", httpclient.helloWorld)
+	http.HandlerFunc("/helloworld", client.client)
 
 	//自定义server
 	
